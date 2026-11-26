@@ -231,7 +231,6 @@ def house_price_pipeline(X, y, ratio_num_idx, ratio_den_idx, cat_labels=None, tr
     splits = make_train_val_test(X_feat, y, train_ratio, val_ratio, seed)
     std_splits, _, _ = standardize_and_add_bias(splits)
 
-    print(std_splits['X_train'], std_splits['y_train'])
     theta = ols_fit(std_splits['X_train'], std_splits['y_train'])
 
     y_val_pred = ols_predict(std_splits['X_val'], theta)
